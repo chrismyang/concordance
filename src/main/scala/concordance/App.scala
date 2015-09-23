@@ -1,5 +1,13 @@
 package concordance
 
 object App {
-  def main(args: Array[String]) = println("Hi!")
+
+  val concordanceCalculator = ConcordanceCalculator()
+
+  def main(args: Array[String]) = {
+    val text = io.Source.stdin.mkString
+    val concordance = concordanceCalculator.calculateConcordance(text)
+    PrettyPrinter.printConcordance(concordance)
+  }
+
 }
